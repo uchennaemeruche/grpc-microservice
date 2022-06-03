@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+package user;
+
+option go_package = "https://github.com/uchennaemeruche/grpc-microservice/protos/user";
+
+message LoginReq{
+    string email = 1;
+    string password = 2;
+}
+
+message SignupReq{
+    string email = 1;
+    string password = 2;
+    string name = 3;
+    enum Gender{
+        MALE = 0;
+        FEMALE = 1;
+    }
+    Gender gender = 4;
+}
+
+message UserResponse{
+    string id = 1;
+    string email = 2;
+    string name = 3;
+    string token = 4;
+}
+
+message VerifyResponse{
+    string id =1;
+    string name = 2;
+    string email = 3;
+}
+
+message GetUserReq{
+    string user_id = 1;
+}
+
+message VerifyReq{
+    string token = 1;
+}
+
+service UserService {
+    rpc login (LoginReq) returns (UserResponse);
+    rpc signup (SignupReq) returns (UserResponse);
+    rpc verifyUser (VerifyReq) returns (VerifyResponse);
+    rpc getUser (GetUserReq) returns (VerifyResponse);
+}
