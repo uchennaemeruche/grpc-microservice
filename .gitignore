@@ -1,0 +1,5 @@
+userService/.env
+userService/node_modules
+
+.vscode
+userService/.idea
