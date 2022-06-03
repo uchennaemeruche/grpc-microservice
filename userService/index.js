@@ -13,5 +13,7 @@ async function main() {
   api = new API(db, grpc);
 
   let server = new grpc.Server();
-  server.addService(services);
+  server.addService(services.UserServiceService, {
+    signup: ap,
+  });
 }
