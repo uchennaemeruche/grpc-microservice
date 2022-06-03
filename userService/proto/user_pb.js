@@ -18,7 +18,6 @@ var global = Function('return this')();
 goog.exportSymbol('proto.user.GetUserReq', null, global);
 goog.exportSymbol('proto.user.LoginReq', null, global);
 goog.exportSymbol('proto.user.SignupReq', null, global);
-goog.exportSymbol('proto.user.SignupReq.Gender', null, global);
 goog.exportSymbol('proto.user.UserResponse', null, global);
 goog.exportSymbol('proto.user.VerifyReq', null, global);
 goog.exportSymbol('proto.user.VerifyResponse', null, global);
@@ -342,8 +341,7 @@ proto.user.SignupReq.toObject = function(includeInstance, msg) {
   var f, obj = {
     email: jspb.Message.getFieldWithDefault(msg, 1, ""),
     password: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    name: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    gender: jspb.Message.getFieldWithDefault(msg, 4, 0)
+    name: jspb.Message.getFieldWithDefault(msg, 3, "")
   };
 
   if (includeInstance) {
@@ -391,10 +389,6 @@ proto.user.SignupReq.deserializeBinaryFromReader = function(msg, reader) {
     case 3:
       var value = /** @type {string} */ (reader.readString());
       msg.setName(value);
-      break;
-    case 4:
-      var value = /** @type {!proto.user.SignupReq.Gender} */ (reader.readEnum());
-      msg.setGender(value);
       break;
     default:
       reader.skipField();
@@ -446,23 +440,8 @@ proto.user.SignupReq.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getGender();
-  if (f !== 0.0) {
-    writer.writeEnum(
-      4,
-      f
-    );
-  }
 };
 
-
-/**
- * @enum {number}
- */
-proto.user.SignupReq.Gender = {
-  MALE: 0,
-  FEMALE: 1
-};
 
 /**
  * optional string email = 1;
@@ -515,24 +494,6 @@ proto.user.SignupReq.prototype.getName = function() {
  */
 proto.user.SignupReq.prototype.setName = function(value) {
   return jspb.Message.setProto3StringField(this, 3, value);
-};
-
-
-/**
- * optional Gender gender = 4;
- * @return {!proto.user.SignupReq.Gender}
- */
-proto.user.SignupReq.prototype.getGender = function() {
-  return /** @type {!proto.user.SignupReq.Gender} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
-};
-
-
-/**
- * @param {!proto.user.SignupReq.Gender} value
- * @return {!proto.user.SignupReq} returns this
- */
-proto.user.SignupReq.prototype.setGender = function(value) {
-  return jspb.Message.setProto3EnumField(this, 4, value);
 };
 
 

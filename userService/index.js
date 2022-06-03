@@ -14,6 +14,19 @@ async function main() {
 
   let server = new grpc.Server();
   server.addService(services.UserServiceService, {
-    signup: ap,
+    signup: api.signup,
   });
+
+  server.bindAsync(
+    `${process.env.HOST}:${process.env.PORT}`,
+    grpc.ServerCredentials.createInsecure(),
+    () => {
+      server.start();
+      console.log(
+        `Server is running at: ${process.env.HOST}:${process.env.PORT}`
+      );
+    }
+  );
 }
+
+main();

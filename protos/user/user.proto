@@ -13,11 +13,11 @@ message SignupReq{
     string email = 1;
     string password = 2;
     string name = 3;
-    enum Gender{
-        MALE = 0;
-        FEMALE = 1;
-    }
-    Gender gender = 4;
+    // enum Gender{
+    //     MALE = 0;
+    //     FEMALE = 1;
+    // }
+    // Gender gender = 4;
 }
 
 message UserResponse{
