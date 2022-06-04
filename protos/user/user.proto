@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package user;
+package user_pkg;
 
-option go_package = "https://github.com/uchennaemeruche/grpc-microservice/protos/user";
+option go_package = "github.com/uchennaemeruche/grpc-microservice/protos/user";
 
 message LoginReq{
     string email = 1;
