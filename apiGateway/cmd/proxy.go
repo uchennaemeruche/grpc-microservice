@@ -7,7 +7,6 @@ import (
 	"net/http"
 	"os"
 
-	// gw "github.com/uchennaemeruche/grpc-microservice/protos/api"
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"github.com/joho/godotenv"
 	"github.com/spf13/cobra"

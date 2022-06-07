@@ -9,7 +9,7 @@ import (
 
 var rootCmd = &cobra.Command{
 	Use:   "apiGateway",
-	Short: "apiGateway is a gRPC serer to serve my grpc-microservice project",
+	Short: "apiGateway is a gRPC server to serve my grpc-microservice project",
 }
 
 func init() {
