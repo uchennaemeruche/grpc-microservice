@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package api_pkg;
+
+option go_package = "github.com/uchennaemeruche/grpc-microservice/protos/api";
+
+import "google/api/annotations.proto";
+import "user/user.proto";
+
+service API{
+    rpc SignupUser (user_pkg.SignupReq) returns (user_pkg.UserResponse){
+        option(google.api.http) ={
+            post: "/v1/user/signup"
+            body: "*"
+        };
+    }
+
+    rpc LoginUser (user_pkg.LoginReq) returns (user_pkg.UserResponse){
+        option (google.api.http) ={
+            post: "/v1/user/login"
+            body: "*"
+        };
+    }
+}
